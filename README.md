@@ -1,28 +1,38 @@
-# Python Neu-Menü Setup
+# Python New File GUI
 
-Dieses Setup sorgt dafür, dass Windows im Rechtsklick-Menü Python-Dateien schnell erstellt:
+**Erstellt neue Python-Dateien über das Windows Explorer Kontextmenü.**
 
 ## Features
-
-- **Neu → Python-Datei**: Erstellt automatisch eine **Template-Datei**.
-- **Rechtsklick → Hintergrund → Neue Python-Datei erstellen**: Optional Dialog für **Template oder leere Datei**.
-- **Benutzer-spezifisch**: Alle Änderungen werden in `HKCU` gespeichert.
+- Rechtsklick → „Neue Python-Datei erstellen…“ (Hintergrund & Neu-Menü)
+- Dunkler Editor mit:
+  - Aktuelle Zeile grün markiert
+  - Vim-Style Navigation (`h/j/k/l`)
+  - Syntax-Highlighting (Pygments, optional)
+- Template-Editor: eigenen Inhalt bearbeiten und als Template speichern
+- Optional VS Code öffnen
+- Portabel: relative Pfade für BAT/Registry
 
 ## Installation
+1. Ordnerstruktur:
+   ```
+   py-new-file/
+   ├─ create_python_new.py
+   ├─ create_python_new_gui.bat
+   ├─ python_new_context.reg
+   └─ templates/
+       ├─ NeuePythonDatei.py
+       └─ LeerePythonDatei.py
+   ```
+2. Doppelklick auf `python_new_context.reg`, um Neu-Menü & Hintergrundmenü einzurichten.
+3. Rechtsklick im Explorer → „Neue Python-Datei erstellen…“ startet die GUI.
 
-1. Doppelklick auf `install_template.bat`:
-   - Kopiert das Template nach `%APPDATA%\Microsoft\Windows\Templates`.
-   - Repariert das „Neu-Menü“.
-   - Startet den Explorer neu.
+## Nutzung
+- Wähle „Template“ oder „Leer“.
+- Bearbeite Inhalt optional.
+- Checkbox „Als Template speichern“, falls du es für zukünftige Dateien sichern willst.
+- Optional VS Code öffnen.
 
-## Deinstallation
+## Hinweise
+- Python muss im PATH sein.
+- GUI startet ohne sichtbares CMD-Fenster.
 
-1. Doppelklick auf `uninstall.bat`:
-   - Entfernt alle Registry-Einträge für „Neu → Python-Datei“ und Kontextmenüeinträge.
-   - Löscht die Template-Datei.
-   - Startet den Explorer neu.
-
-## Hinweis
-
-- Keine Admin-Rechte nötig, alles unter `HKCU`.
-- Explorer muss neu gestartet werden, damit Änderungen sichtbar sind.
