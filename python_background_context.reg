@@ -1,0 +1,9 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\NeuePythonDatei_Hintergrund]
+@="Neue Python-Datei (Hintergrund)"
+"Icon"="python.exe"
+"Position"="Top"
+
+[HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\NeuePythonDatei_Hintergrund\command]
+@="\"C:\Users\alexh\source\repos\py-new-file\create_python_new.bat\" \"%V\""

@@ -1,0 +1,8 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\.py]
+@="Python.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.py\ShellNew]
+"FileName"="NeuePythonDatei.py"
