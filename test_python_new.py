@@ -1,5 +1,6 @@
 import os
 import subprocess
+import sys
 
 print("=== Python Neu-Menü Test (automatisch) ===\n")
 
@@ -21,17 +22,15 @@ for f, name in [(template_file, "Template-Datei"), (empty_file, "Leere Datei"), 
 # --- 2. Automatisches Erstellen Template ---
 print("\n2. Test: Template-Datei erstellen...")
 subprocess.run(
-    ["python", os.path.join(script_dir, "create_python_new.py"), os.getcwd(), "t"],
-    text=True,
-    shell=True
+    [sys.executable, os.path.join(script_dir, "create_python_new.py"), os.getcwd(), "t"],
+    check=True
 )
 
 # --- 3. Automatisches Erstellen Leere Datei ---
 print("\n3. Test: Leere Datei erstellen...")
 subprocess.run(
-    ["python", os.path.join(script_dir, "create_python_new.py"), os.getcwd(), "l"],
-    text=True,
-    shell=True
+    [sys.executable, os.path.join(script_dir, "create_python_new.py"), os.getcwd(), "l"],
+    check=True
 )
 
 # --- 4. Prüfen ob Dateien erstellt wurden ---

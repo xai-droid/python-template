@@ -9,13 +9,21 @@ def check_key(root, path):
 
 def check_background_entry():
     print("=== Hintergrund-Kontextmenü prüfen ===")
-    key_path = r"Software\Classes\Directory\Background\shell\NeuePythonDatei_Hintergrund"
-    key = check_key(winreg.HKEY_CURRENT_USER, key_path)
+    possible = [
+        r"Software\Classes\Directory\Background\shell\NeuePythonDatei_Hintergrund",
+        r"Software\Classes\Directory\Background\shell\NeuePythonDatei",
+    ]
+    key = None
+    found_path = None
+    for p in possible:
+        key = check_key(winreg.HKEY_CURRENT_USER, p)
+        if key:
+            found_path = p
+            break
     if not key:
-        print("[FEHLER] Hintergrund-Menüeintrag NICHT gefunden.")
+        print("[FEHLER] Hintergrund-Menüeintrag NICHT gefunden (checked candidate names).")
         return
-
-    print("[OK] Hintergrund-Menüeintrag gefunden.")
+    print(f"[OK] Hintergrund-Menüeintrag gefunden: {found_path}")
     try:
         cmd_key = check_key(winreg.HKEY_CURRENT_USER, key_path + r"\command")
         if cmd_key:
@@ -29,11 +37,10 @@ def check_background_entry():
 def check_new_py_entry():
     print("\n=== .py Neu-Menü prüfen ===")
     key_path = r".py\ShellNew"
-    key = check_key(winreg.HKEY_CLASSES_ROOT, key_path)
+    key = check_key(winreg.HKEY_CLASSES_ROOT, key_path) or check_key(winreg.HKEY_CURRENT_USER, r"Software\Classes\.py\ShellNew")
     if not key:
-        print("[FEHLER] .py Neu-Menü Eintrag NICHT gefunden.")
+        print("[FEHLER] .py Neu-Menü Eintrag NICHT gefunden (HKCR or HKCU checked).")
         return
-
     print("[OK] .py Neu-Menü Eintrag gefunden.")
     try:
         file_name, _ = winreg.QueryValueEx(key, "FileName")
