@@ -1,27 +1,23 @@
 Windows Registry Editor Version 5.00
 
-; Entfernt klassischen Neu-Menü Eintrag für Python-Dateien
+; --- Entfernt klassischen Neu-Menü Eintrag für Python-Dateien ---
 [-HKEY_CLASSES_ROOT\.py\ShellNew]
-
-; Entfernt Kontextmenü Eintrag für Hintergrund (Template + leer)
-[-HKEY_CLASSES_ROOT\Directory\Background\shell\NeuePythonDatei]
-[-HKEY_CLASSES_ROOT\Directory\Background\shell\NeuePythonDateiLeer]
-
-; Entfernt Kontextmenü Einträge für einzelne Dateien (*.py)
-[-HKEY_CLASSES_ROOT\*\shell\NeuePythonDatei]
-[-HKEY_CLASSES_ROOT\*\shell\NeuePythonDateiLeer]
-
-
-
-
-
-; Entfernt klassischen Neu-Menü Eintrag für Python-Dateien
 [-HKEY_CURRENT_USER\Software\Classes\.py\ShellNew]
 
-; Entfernt Kontextmenü Eintrag für Hintergrund (Template + leer)
+; --- Entfernt Kontextmenü Eintrag für Hintergrund (Template + leer) ---
+[-HKEY_CLASSES_ROOT\Directory\Background\shell\NeuePythonDatei]
+[-HKEY_CLASSES_ROOT\Directory\Background\shell\NeuePythonDateiLeer]
 [-HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\NeuePythonDatei]
 [-HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\NeuePythonDateiLeer]
 
-; Entfernt Kontextmenü Einträge für einzelne Dateien (*.py)
+; --- Entfernt Kontextmenü Einträge für einzelne Dateien (*.py) ---
+[-HKEY_CLASSES_ROOT\*\shell\NeuePythonDatei]
+[-HKEY_CLASSES_ROOT\*\shell\NeuePythonDateiLeer]
 [-HKEY_CURRENT_USER\Software\Classes\*\shell\NeuePythonDatei]
 [-HKEY_CURRENT_USER\Software\Classes\*\shell\NeuePythonDateiLeer]
+
+; --- Entfernt alle Submenus/Pfeile für Python-Dateien ---
+[-HKEY_CLASSES_ROOT\Python.File\Shell]
+[-HKEY_CLASSES_ROOT\Python.File\ShellEx]
+[-HKEY_CURRENT_USER\Software\Classes\Python.File\Shell]
+[-HKEY_CURRENT_USER\Software\Classes\Python.File\ShellEx]
