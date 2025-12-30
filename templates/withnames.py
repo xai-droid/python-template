@@ -1,0 +1,2 @@
+# new template
+${hello}
